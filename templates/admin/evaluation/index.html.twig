@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <h1><span>Classe </span></h1>
+    <div class="text-center text-lg-start">
+        <a href="add" class="btn-get-started scrollto">Ajouter une evaluation</a>
+    </div>
+    <table class="table table-bordered table-dark table-striped">
+        <tr>
+            <th>Identifiant</th>
+            <th>Date</th>
+            <th>N°</th>
+            <th>Note</th>
+            <th>Type</th>
+            <th>Matiere</th>
+            <th>Modifier</th>
+        </tr>
+
+        {% for liste in liste %}
+        <tr >
+            <td>{{liste.id}}</td>
+            <td>{{liste.createdAt|date}}</td>
+            <td>{{liste.numero}}</td>
+            <td>{{liste.note}}</td>
+            <td>{{liste.type}}</td>
+            <td>{{liste.matiere}}</td>
+            <td> <a href="{{path('admin_evaluation_edit',{id:  liste.id})}}">Valider</a> </td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}

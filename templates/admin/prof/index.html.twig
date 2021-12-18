@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <h1><span>Enseignant </span></h1>
+    <div class="text-center text-lg-start">
+        <a href="add" class="btn-get-started scrollto">Ajouter un enseignant</a>
+    </div>
+    <table class="table table-bordered table-dark table-striped">
+        <tr>
+            <th>Identifiant</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>modifier</th>
+
+        </tr>
+
+        {% for liste in liste %}
+        <tr >
+            <td>{{liste.id}}</td>
+            <td>{{liste.nom}}</td>
+            <td>{{liste.prenom}}</td>
+            <td> <a href="{{path('admin_eleve_edit',{id:  liste.id})}}">modifier</a> </td>
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}
